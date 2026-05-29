@@ -92,7 +92,7 @@ const AuthScreen = () => {
           <View className=' flex-row justify-center items-center gap-4 mb-5'>
 
             <Pressable
-              className="size-15 rounded-2xl bg-white items-center justify-center active:scale-[0.95] shadow-lg shadow-white/10"
+              className="size-20 rounded-2xl bg-surface border border-border-light items-center justify-center active:scale-[0.95]"
               style={({ pressed }) => ({ opacity: pressed ? 0.85 : 1 })}
               disabled={isLoading}
               accessibilityRole="button"
@@ -103,11 +103,7 @@ const AuthScreen = () => {
                 loadingStrategy === "oauth_google" ? (
                   <ActivityIndicator size={"small"} color={"#6C5CE7"} />
                 ) :
-                  <Image
-                    source={require("../../assets/images/google.png")}
-                    style={{ width: 28, height: 28 }}
-                    contentFit="contain"
-                  />
+                  <Ionicons name="logo-google" size={30} color="#FFFFFE" />
               }
             </Pressable>
 
