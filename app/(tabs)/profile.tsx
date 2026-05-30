@@ -22,11 +22,7 @@ const ProfileScreen = () => {
         <View className=' flex-1  bg-background'>
             <SafeAreaView>
 
-                <View className='px-5 py-3'>
-                    <Text className=' text-2xl font-bold text-foreground'>Profile</Text>
-                </View>
-
-                <View className='items-center py-2'>
+                <View className='items-center py-4'>
                     <View className=' mb-3.5 relative'>
                         <Image source={user?.imageUrl}
                             style={{ width: 88, height: 88, borderRadius: 44 }}
