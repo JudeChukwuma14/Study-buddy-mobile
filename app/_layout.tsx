@@ -1,7 +1,7 @@
 import "../global.css"
 import { Stack } from "expo-router";
 import * as Sentry from '@sentry/react-native';
-
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 const userConsentForTelemetry = false;
 
 Sentry.init({
@@ -35,7 +35,9 @@ if (!publishableKey) {
 export default Sentry.wrap(function RootLayout() {
   return (
     <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
-      <Stack  screenOptions={{headerShown: false}}/>
+      <GestureHandlerRootView className=" flex-1">
+        <Stack screenOptions={{ headerShown: false }} />
+      </GestureHandlerRootView>
     </ClerkProvider>
   )
 });
