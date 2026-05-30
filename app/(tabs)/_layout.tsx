@@ -1,12 +1,19 @@
 import { NativeTabs, Label, Icon } from 'expo-router/unstable-native-tabs';
 import { useAuth } from '@clerk/expo';
-import { Redirect } from 'expo-router';
+import { useRouter } from 'expo-router';
+import { useEffect } from 'react';
 
 const TabsLayout = () => {
     const { isSignedIn, isLoaded } = useAuth()
+    const router = useRouter();
+
+    useEffect(() => {
+        if (isLoaded && !isSignedIn) {
+            router.replace("/(auth)")
+        }
+    }, [isSignedIn, isLoaded])
 
     if (!isLoaded) return null
-    if (!isSignedIn) return <Redirect href="/(auth)" />
 
     return (
         <NativeTabs>

@@ -38,7 +38,7 @@ const ProfileScreen = () => {
                         {user?.fullName || user?.username || 'Student'}
 
                     </Text>
-                    <Text className=' mt-0.5 text-base text-foreground-muted'>{user?.emailAddresses[0].emailAddress}</Text>
+                    <Text className=' mt-0.5 text-base text-foreground-muted'>{user?.primaryEmailAddress?.emailAddress ?? user?.emailAddresses?.[0]?.emailAddress ?? '—'}</Text>
                     <View className="mt-3 flex-row items-center gap-1.5 rounded-full bg-[#FDCB6E1E] px-3.5 py-1.5">
                         <Ionicons name="flame" size={16} color="#FDCB6E" />
                         <Text className="text-sm font-semibold text-[#FDCB6E]">7 day study streak</Text>
@@ -62,7 +62,7 @@ const ProfileScreen = () => {
 
                 <View className="gap-1 px-5">
                     {MENU_ITEMS.map((item, i) => (
-                        <Pressable
+                        <View
                             key={i}
                             className="mb-1.5 flex-row items-center gap-3.5 rounded-xl border border-border bg-surface px-4 py-4"
                         >
@@ -73,8 +73,7 @@ const ProfileScreen = () => {
                                 <Ionicons name={item.icon as any} size={22} color={item.color} />
                             </View>
                             <Text className="flex-1 text-base font-medium text-foreground">{item.label}</Text>
-                            <Ionicons name="chevron-forward" size={18} color={COLORS.textSubtle} />
-                        </Pressable>
+                        </View>
                     ))}
                 </View>
 
